@@ -1,0 +1,1729 @@
+/* ============================================================
+   A-ver4 — Fresh Studio Graphic
+   orbody-gym.com のデザイン言語（design-A-ver4.md）を
+   VIVACHEのブランド骨格に適応したスタイル。
+   ============================================================ */
+
+.av4-site {
+  --av4-ink: #3b3b3b;
+  --av4-muted: #707070;
+  --av4-mint: #eff5f4;
+  --av4-cream: #f5f2ea;
+  --av4-khaki: #b8b6a9;
+  --av4-line: #dcdad2;
+  --av4-white: #fff;
+  --av4-grad: linear-gradient(225deg, #d9afd9 0%, #97d9e1 100%);
+  --av4-shadow: 0 10px 30px rgba(59, 59, 59, 0.08);
+  --av4-sans: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --av4-en: "Josefin Sans", "Zen Kaku Gothic New", sans-serif;
+  --av4-container: 1180px;
+  --av4-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --av4-section: clamp(5.5rem, 9vw, 8.5rem);
+  --av4-skew: 3.5vw;
+
+  background: var(--av4-white);
+  color: var(--av4-ink);
+  font-family: var(--av4-sans);
+  font-size: 15.5px;
+  line-height: 2;
+  letter-spacing: 0.09em;
+}
+
+.av4-site img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.av4-container {
+  margin-inline: auto;
+  max-width: var(--av4-container);
+  padding-inline: var(--av4-gutter);
+}
+
+.av4-section {
+  padding-block: var(--av4-section);
+}
+
+.av4-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* margin リセットは styles.css の型セレクタに任せる（クラスの margin 指定を潰さないため） */
+.av4-site h1,
+.av4-site h2,
+.av4-site h3 {
+  font-weight: 500;
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+.av4-site p {
+  text-wrap: pretty;
+}
+
+/* ------------------------------------------------------------
+   Heading (slash + EN + JA)
+   ------------------------------------------------------------ */
+
+.av4-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.av4-heading-main {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.av4-heading-slash {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    to bottom right,
+    transparent calc(50% - 1px),
+    currentColor calc(50% - 1px),
+    currentColor calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+  opacity: 0.75;
+}
+
+.av4-heading-en {
+  font-family: var(--av4-en);
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.av4-heading-ja {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--av4-muted);
+}
+
+.av4-heading-aside {
+  font-size: 0.82rem;
+  color: var(--av4-muted);
+  letter-spacing: 0.08em;
+}
+
+.av4-heading--light {
+  color: var(--av4-white);
+}
+
+.av4-heading--light .av4-heading-ja,
+.av4-heading--light .av4-heading-aside {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.av4-section-intro {
+  max-width: 44rem;
+  margin-bottom: clamp(2.25rem, 4vw, 3.25rem);
+}
+
+.av4-note {
+  margin-top: clamp(2rem, 3.5vw, 2.75rem);
+  font-size: 0.88rem;
+  color: var(--av4-muted);
+}
+
+.av4-fine-print {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--av4-muted);
+}
+
+.av4-text {
+  margin-top: 1.4rem;
+  color: var(--av4-ink);
+}
+
+.av4-statement {
+  margin-top: 1rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* ------------------------------------------------------------
+   Reveal
+   ------------------------------------------------------------ */
+
+.av4-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+
+.av4-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av4-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   Actions
+   ------------------------------------------------------------ */
+
+.av4-action-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.av4-booking {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 58px;
+  padding: 0.9rem 2.2rem;
+  background: var(--av4-grad);
+  color: var(--av4-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 5px;
+  box-shadow: var(--av4-shadow);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.av4-booking:hover {
+  filter: brightness(1.06) saturate(1.1);
+}
+
+.av4-booking:active {
+  transform: translateY(1px);
+}
+
+.av4-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0.7rem 1.8rem;
+  background: var(--av4-white);
+  color: var(--av4-ink);
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--av4-ink);
+  border-radius: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  align-self: flex-start;
+}
+
+.av4-line:hover {
+  background: var(--av4-ink);
+  color: var(--av4-white);
+}
+
+.av4-action-support {
+  font-size: 0.8rem;
+  color: var(--av4-muted);
+  letter-spacing: 0.05em;
+}
+
+.av4-section-action {
+  margin-top: clamp(2.75rem, 5vw, 4rem);
+  align-items: center;
+  text-align: center;
+}
+
+.av4-section-action .av4-line {
+  align-self: center;
+}
+
+.av4-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 48px;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--av4-line);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.av4-text-link:hover {
+  color: var(--av4-muted);
+  border-color: var(--av4-muted);
+}
+
+/* ------------------------------------------------------------
+   Card
+   ------------------------------------------------------------ */
+
+.av4-card {
+  background: var(--av4-white);
+  border-radius: 6px;
+  box-shadow: var(--av4-shadow);
+  padding: 1.9rem 1.9rem 1.75rem;
+}
+
+.av4-card h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.av4-card-number {
+  display: block;
+  font-family: var(--av4-en);
+  font-size: 1.2rem;
+  letter-spacing: 0.14em;
+  color: var(--av4-khaki);
+  margin-bottom: 0.7rem;
+}
+
+/* ------------------------------------------------------------
+   Header
+   ------------------------------------------------------------ */
+
+.av4-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1px 0 rgba(59, 59, 59, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.av4-header.is-scrolled {
+  box-shadow: 0 4px 20px rgba(59, 59, 59, 0.08);
+}
+
+.av4-header-inner {
+  margin-inline: auto;
+  max-width: 1320px;
+  padding: 0.8rem var(--av4-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.av4-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.av4-brand strong {
+  font-family: var(--av4-en);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.av4-brand span {
+  font-size: 0.56rem;
+  letter-spacing: 0.32em;
+  color: var(--av4-muted);
+}
+
+.av4-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.1rem, 2.2vw, 2.1rem);
+}
+
+.av4-nav > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.4rem 0;
+  transition: opacity 0.2s ease;
+}
+
+.av4-nav > a:hover {
+  opacity: 0.6;
+}
+
+.av4-nav-en {
+  font-family: var(--av4-en);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.av4-nav-ja {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--av4-muted);
+}
+
+.av4-menu-button {
+  display: none;
+  border: 0;
+  background: none;
+  padding: 0.6rem;
+  cursor: pointer;
+  color: var(--av4-ink);
+}
+
+/* ------------------------------------------------------------
+   Hero
+   ------------------------------------------------------------ */
+
+.av4-hero {
+  position: relative;
+  min-height: 92vh;
+  min-height: 92dvh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-top: 76px;
+}
+
+/* .av4-site img の height: auto に勝つため詳細度を上げる */
+.av4-site .av4-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.av4-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(35, 38, 36, 0.72) 0%, rgba(35, 38, 36, 0.28) 45%, rgba(35, 38, 36, 0.12) 100%);
+}
+
+.av4-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--av4-container);
+  margin-inline: auto;
+  padding: 0 var(--av4-gutter) clamp(3.5rem, 8vh, 6rem);
+  color: var(--av4-white);
+}
+
+.av4-hero-kicker {
+  font-family: var(--av4-en);
+  font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.av4-hero h1 {
+  font-size: clamp(2.6rem, 5.4vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-shadow: 0 2px 24px rgba(35, 38, 36, 0.4);
+}
+
+.av4-hero-formula {
+  margin-top: 1.6rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.av4-hero-description {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.av4-hero-actions {
+  margin-top: 2.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.av4-hero-actions .av4-action-support {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.av4-hero-actions .av4-line {
+  background: transparent;
+  color: var(--av4-white);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.av4-hero-actions .av4-line:hover {
+  background: var(--av4-white);
+  color: var(--av4-ink);
+}
+
+.av4-hero-meta {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.av4-hero-meta li {
+  padding-right: 1.4rem;
+}
+
+.av4-hero-meta li + li {
+  padding-left: 1.4rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.av4-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--av4-en);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.av4-scroll-cue::after {
+  content: "";
+  width: 1px;
+  height: clamp(2.5rem, 6vh, 4rem);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* ------------------------------------------------------------
+   Problem (cream)
+   ------------------------------------------------------------ */
+
+.av4-problem {
+  background: var(--av4-cream);
+}
+
+.av4-problem-statement {
+  max-width: 44rem;
+}
+
+.av4-problem-statement h2 {
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.av4-problem-statement p {
+  margin-top: 1.4rem;
+  color: var(--av4-muted);
+}
+
+.av4-problem-grid {
+  list-style: none;
+  margin: clamp(2.5rem, 4.5vw, 3.5rem) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.av4-problem-grid p {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------
+   Concept (offset photo)
+   ------------------------------------------------------------ */
+
+.av4-concept-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: center;
+}
+
+.av4-offset-photo {
+  position: relative;
+  isolation: isolate;
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+.av4-offset-photo::after {
+  content: "";
+  position: absolute;
+  inset: 1.5rem -1.5rem -1.5rem 1.5rem;
+  background: var(--av4-khaki);
+  opacity: 0.45;
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.av4-offset-photo img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------
+   Skewed sections (mint)
+   ------------------------------------------------------------ */
+
+.av4-skew-top {
+  clip-path: polygon(0 var(--av4-skew), 100% 0, 100% 100%, 0 100%);
+  padding-top: calc(var(--av4-section) + var(--av4-skew));
+}
+
+.av4-method,
+.av4-trainer,
+.av4-price {
+  background: var(--av4-mint);
+}
+
+.av4-price {
+  background: var(--av4-cream);
+}
+
+/* ------------------------------------------------------------
+   Method
+   ------------------------------------------------------------ */
+
+.av4-method-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.2vw, 1.9rem);
+}
+
+.av4-method-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.av4-method-number {
+  font-family: var(--av4-en);
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  color: var(--av4-khaki);
+}
+
+.av4-method-key {
+  margin-top: 0.9rem;
+  font-family: var(--av4-en);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+}
+
+.av4-method-card h3 {
+  margin-top: 0.8rem;
+  font-size: 0.98rem;
+}
+
+.av4-method-body {
+  margin-top: 0.7rem;
+  font-size: 0.86rem;
+  color: var(--av4-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Bodymake (photo cards)
+   ------------------------------------------------------------ */
+
+.av4-goal-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.1rem, 2vw, 1.75rem);
+}
+
+.av4-photo-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.av4-photo-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.av4-photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 48, 46, 0.44);
+  transition: background-color 0.4s ease;
+}
+
+.av4-photo-card:hover img {
+  transform: scale(1.03);
+}
+
+.av4-photo-card:hover::after {
+  background: rgba(45, 48, 46, 0.3);
+}
+
+.av4-photo-card-frame {
+  position: absolute;
+  inset: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.av4-photo-card-label {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.75rem;
+  text-align: center;
+  color: var(--av4-white);
+}
+
+.av4-photo-card-label h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.av4-photo-card-label p {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ------------------------------------------------------------
+   Reasons
+   ------------------------------------------------------------ */
+
+.av4-reason-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--av4-line);
+}
+
+.av4-reason-list li {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 18rem) minmax(0, 1fr);
+  gap: 1rem clamp(1.5rem, 3.5vw, 3rem);
+  align-items: baseline;
+  padding: 1.9rem 0.25rem;
+  border-bottom: 1px solid var(--av4-line);
+}
+
+.av4-reason-number {
+  font-family: var(--av4-en);
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+  color: var(--av4-khaki);
+}
+
+.av4-reason-list h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.av4-reason-list p {
+  font-size: 0.9rem;
+  color: var(--av4-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Trainer
+   ------------------------------------------------------------ */
+
+.av4-trainer-card {
+  background: var(--av4-white);
+  border-radius: 8px;
+  box-shadow: var(--av4-shadow);
+  padding: clamp(1.75rem, 3.5vw, 3.25rem);
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.av4-trainer-photo {
+  margin: 0;
+}
+
+.av4-trainer-photo img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.av4-trainer-message {
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.av4-profile-label {
+  margin-top: 1.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--av4-line);
+  font-family: var(--av4-en);
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
+  color: var(--av4-muted);
+}
+
+.av4-trainer-bio {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.av4-trainer-bio p {
+  font-size: 0.93rem;
+  letter-spacing: 0.06em;
+}
+
+.av4-trainer-facts {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--av4-muted);
+  letter-spacing: 0.05em;
+}
+
+.av4-trainer-facts li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.av4-trainer-facts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.95em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--av4-khaki);
+}
+
+.av4-trainer-body .av4-action-wrap {
+  margin-top: 2rem;
+}
+
+/* ------------------------------------------------------------
+   Program
+   ------------------------------------------------------------ */
+
+.av4-program-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.av4-program-card.is-main {
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, #d9afd9, #97d9e1) 1;
+}
+
+.av4-program-duration {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.av4-program-duration strong {
+  font-family: var(--av4-en);
+  font-size: clamp(2.4rem, 3.6vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.av4-program-duration span {
+  font-family: var(--av4-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--av4-muted);
+}
+
+.av4-program-card h3 {
+  margin-top: 1rem;
+}
+
+.av4-program-body {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--av4-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Price
+   ------------------------------------------------------------ */
+
+.av4-price-table-wrap {
+  overflow-x: auto;
+}
+
+.av4-price-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: var(--av4-white);
+  box-shadow: var(--av4-shadow);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.av4-price-table thead th {
+  background: var(--av4-khaki);
+  color: var(--av4-white);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 1rem 1.4rem;
+}
+
+.av4-price-table tbody th,
+.av4-price-table tbody td {
+  padding: 1.1rem 1.4rem;
+  border-top: 1px solid var(--av4-line);
+  font-weight: 400;
+  font-size: 0.95rem;
+  vertical-align: baseline;
+}
+
+.av4-price-table tbody th {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.av4-price-table thead th:nth-child(2),
+.av4-price-table tbody td:nth-child(2) {
+  width: 16%;
+}
+
+.av4-price-table thead th:last-child,
+.av4-price-table td:last-child {
+  text-align: right;
+  width: 24%;
+}
+
+.av4-price-value {
+  font-family: var(--av4-en);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+}
+
+.av4-price-notes {
+  margin-top: clamp(2rem, 3.5vw, 2.75rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.av4-price-note h3 {
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--av4-line);
+}
+
+.av4-price-note p {
+  margin-top: 0.9rem;
+  font-size: 0.86rem;
+  color: var(--av4-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Experience
+   ------------------------------------------------------------ */
+
+.av4-experience-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: start;
+}
+
+.av4-no-pressure {
+  margin: 0 0 2rem;
+  padding: 1.3rem 1.5rem;
+  background: var(--av4-mint);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.av4-experience-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.av4-experience-steps li {
+  position: relative;
+  display: flex;
+  gap: 1.6rem;
+  padding: 0 0 2.25rem;
+}
+
+.av4-experience-steps li::before {
+  content: "";
+  position: absolute;
+  left: 1.05rem;
+  top: 2.4rem;
+  bottom: 0.3rem;
+  width: 1px;
+  background: var(--av4-khaki);
+}
+
+.av4-experience-steps li:last-child {
+  padding-bottom: 0;
+}
+
+.av4-experience-steps li:last-child::before {
+  display: none;
+}
+
+.av4-step-number {
+  flex-shrink: 0;
+  width: 2.1rem;
+  font-family: var(--av4-en);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: var(--av4-khaki);
+  line-height: 2;
+}
+
+.av4-experience-steps h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.av4-experience-steps p {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--av4-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Studio
+   ------------------------------------------------------------ */
+
+.av4-studio {
+  background: var(--av4-cream);
+}
+
+.av4-studio-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.av4-studio-main {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.av4-studio-main img {
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.av4-studio-main figcaption {
+  padding-top: 0.8rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--av4-muted);
+}
+
+.av4-studio-sub {
+  margin: 0;
+}
+
+.av4-studio-sub img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.av4-studio-amenities {
+  margin: clamp(2rem, 3.5vw, 2.75rem) 0 0;
+  border-top: 1px solid var(--av4-line);
+  max-width: 44rem;
+}
+
+.av4-studio-amenities > div {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--av4-line);
+  font-size: 0.88rem;
+}
+
+.av4-studio-amenities dt {
+  color: var(--av4-muted);
+}
+
+.av4-studio-amenities dd {
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   FAQ
+   ------------------------------------------------------------ */
+
+.av4-faq-list {
+  max-width: 52rem;
+  border-top: 1px solid var(--av4-line);
+}
+
+.av4-faq-item {
+  border-bottom: 1px solid var(--av4-line);
+}
+
+.av4-faq-item summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.4rem 0.25rem;
+  min-height: 48px;
+  cursor: pointer;
+  font-size: 0.98rem;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.av4-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.av4-faq-item summary:hover {
+  color: var(--av4-muted);
+}
+
+.av4-faq-plus,
+.av4-faq-minus {
+  flex-shrink: 0;
+  color: var(--av4-khaki);
+}
+
+.av4-faq-minus {
+  display: none;
+}
+
+.av4-faq-item[open] .av4-faq-plus {
+  display: none;
+}
+
+.av4-faq-item[open] .av4-faq-minus {
+  display: block;
+}
+
+.av4-faq-answer {
+  padding: 0 2.75rem 1.6rem 0.25rem;
+  font-size: 0.9rem;
+  color: var(--av4-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Access
+   ------------------------------------------------------------ */
+
+.av4-access {
+  background: var(--av4-mint);
+}
+
+.av4-access-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 4.5vw, 4rem);
+  align-items: start;
+}
+
+.av4-access-map {
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: var(--av4-shadow);
+}
+
+.av4-access-map iframe {
+  display: block;
+  width: 100%;
+  height: 400px;
+  border: 0;
+}
+
+.av4-access-info h3 {
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.av4-access-info dl {
+  margin: 1.5rem 0 0;
+  border-top: 1px solid var(--av4-line);
+}
+
+.av4-access-info dl > div {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--av4-line);
+  font-size: 0.88rem;
+}
+
+.av4-access-info dt {
+  color: var(--av4-muted);
+}
+
+.av4-access-info dd {
+  margin: 0;
+}
+
+.av4-access-info address {
+  font-style: normal;
+}
+
+.av4-access-info .av4-text-link {
+  margin-top: 1.4rem;
+}
+
+.av4-access-summary {
+  margin-top: clamp(2.5rem, 5vw, 3.75rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--av4-line);
+  font-size: 0.88rem;
+  color: var(--av4-muted);
+  max-width: 46rem;
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Final CTA (dark)
+   ------------------------------------------------------------ */
+
+.av4-final {
+  background: var(--av4-ink);
+  color: var(--av4-white);
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.av4-final-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.av4-final-en {
+  font-family: var(--av4-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 1.5rem;
+}
+
+.av4-final h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.av4-final-lead {
+  margin-top: 1.4rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.06em;
+}
+
+.av4-final-booking {
+  margin-top: 2.5rem;
+  align-items: center;
+}
+
+.av4-final .av4-action-support {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.av4-final .av4-line {
+  margin-top: 1.25rem;
+  background: transparent;
+  color: var(--av4-white);
+  border-color: rgba(255, 255, 255, 0.7);
+  align-self: center;
+}
+
+.av4-final .av4-line:hover {
+  background: var(--av4-white);
+  color: var(--av4-ink);
+}
+
+/* ------------------------------------------------------------
+   Footer (khaki band)
+   ------------------------------------------------------------ */
+
+.av4-footer {
+  background: var(--av4-khaki);
+  color: var(--av4-white);
+  padding-block: 2.5rem;
+}
+
+.av4-footer-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.av4-footer-top {
+  font-family: var(--av4-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  padding-left: 1.1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  transition: opacity 0.2s ease;
+}
+
+.av4-footer-top:hover {
+  opacity: 0.7;
+}
+
+.av4-footer-brand {
+  font-family: var(--av4-en);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.av4-footer-note p {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+.av4-footer-note address {
+  margin-top: 0.3rem;
+  font-style: normal;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.av4-footer-nav {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  font-family: var(--av4-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+}
+
+.av4-footer-nav a {
+  transition: opacity 0.2s ease;
+}
+
+.av4-footer-nav a:hover {
+  opacity: 0.7;
+}
+
+.av4-footer-nav span {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ------------------------------------------------------------
+   Floating / Mobile bar
+   ------------------------------------------------------------ */
+
+.av4-floating {
+  position: fixed;
+  right: clamp(1.25rem, 3vw, 2.5rem);
+  bottom: clamp(1.25rem, 3vw, 2.5rem);
+  z-index: 30;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.av4-floating.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.av4-floating a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 56px;
+  padding: 0.8rem 1.7rem;
+  background: var(--av4-grad);
+  color: var(--av4-white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: 5px;
+  box-shadow: 0 14px 34px rgba(59, 59, 59, 0.25);
+  transition: filter 0.2s ease;
+}
+
+.av4-floating a:hover {
+  filter: brightness(1.06) saturate(1.1);
+}
+
+.av4-mobile-bar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av4-floating {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   Tablet
+   ------------------------------------------------------------ */
+
+@media (max-width: 1024px) {
+  .av4-method-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .av4-goal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .av4-reason-list li {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+  }
+
+  .av4-reason-list p {
+    grid-column: 2;
+  }
+}
+
+/* ------------------------------------------------------------
+   Mobile
+   ------------------------------------------------------------ */
+
+@media (max-width: 860px) {
+  .av4-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.4rem;
+    padding: 6rem var(--av4-gutter) 3rem;
+    background: var(--av4-white);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .av4-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .av4-nav > a {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.9rem;
+  }
+
+  .av4-nav-en {
+    font-size: 1.15rem;
+  }
+
+  .av4-menu-button {
+    display: inline-flex;
+    position: relative;
+    z-index: 50;
+  }
+
+  .av4-hero {
+    min-height: 88dvh;
+  }
+
+  .av4-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .av4-hero-actions .av4-action-wrap,
+  .av4-hero-actions .av4-booking,
+  .av4-hero-actions .av4-line {
+    width: 100%;
+  }
+
+  .av4-scroll-cue {
+    display: none;
+  }
+
+  .av4-problem-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av4-concept-grid,
+  .av4-experience-grid,
+  .av4-access-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av4-offset-photo {
+    max-width: 30rem;
+  }
+
+  .av4-method-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av4-goal-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 26rem;
+  }
+
+  .av4-reason-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+    padding: 1.6rem 0;
+  }
+
+  .av4-reason-list p {
+    grid-column: 1;
+  }
+
+  .av4-trainer-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av4-trainer-photo {
+    max-width: 26rem;
+  }
+
+  .av4-program-grid,
+  .av4-price-notes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av4-studio-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av4-studio-main img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .av4-access-map iframe {
+    height: 320px;
+  }
+
+  .av4-experience-copy .av4-action-wrap,
+  .av4-experience-copy .av4-booking {
+    width: 100%;
+  }
+
+  /* README要件: 料金テーブルはモバイルで縦レイアウト */
+  .av4-price-table thead {
+    display: none;
+  }
+
+  .av4-price-table,
+  .av4-price-table tbody,
+  .av4-price-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .av4-price-table tr {
+    padding: 1.3rem 1.4rem;
+    border-top: 4px solid var(--av4-khaki);
+  }
+
+  .av4-price-table tr:first-child {
+    border-top: 0;
+  }
+
+  .av4-price-table tbody th,
+  .av4-price-table tbody td,
+  .av4-price-table tbody td:nth-child(2),
+  .av4-price-table tbody td:last-child {
+    padding: 0;
+    border: 0;
+    width: auto;
+    text-align: left;
+  }
+
+  .av4-price-table tbody th {
+    display: block;
+  }
+
+  .av4-price-table tbody td,
+  .av4-price-table tbody td:nth-child(2),
+  .av4-price-table tbody td:last-child {
+    display: inline-block;
+    margin-top: 0.45rem;
+  }
+
+  .av4-price-table tbody td:nth-child(2)::after {
+    content: "／";
+    margin-inline: 0.55rem;
+    color: var(--av4-line);
+  }
+
+  .av4-final-booking,
+  .av4-final .av4-booking {
+    width: 100%;
+    max-width: 26rem;
+  }
+
+  .av4-footer-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .av4-footer-top {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .av4-floating {
+    display: none;
+  }
+
+  .av4-mobile-bar {
+    display: block;
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 30;
+    padding: 0.7rem var(--av4-gutter) calc(0.7rem + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--av4-line);
+  }
+
+  .av4-mobile-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    background: var(--av4-grad);
+    color: var(--av4-white);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 5px;
+  }
+
+  .av4-has-bar main {
+    padding-bottom: 5.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .av4-site {
+    font-size: 15px;
+    letter-spacing: 0.06em;
+  }
+
+  .av4-hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .av4-final h2 br {
+    display: none;
+  }
+
+  .av4-booking {
+    gap: 0.5rem;
+    padding-inline: 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+
+  .av4-heading-en {
+    font-size: 1.7rem;
+  }
+
+  .av4-heading-slash {
+    width: 34px;
+    height: 34px;
+  }
+
+  .av4-hero-meta li {
+    padding-right: 1rem;
+  }
+
+  .av4-hero-meta li + li {
+    padding-left: 1rem;
+  }
+}

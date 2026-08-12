@@ -1,0 +1,1963 @@
+/* ============================================================
+   A-ver5 — Fresh Studio Original
+   A-ver4の配色・トーンを維持しつつ、参照元固有のあしらいを
+   VIVACHE独自の意匠へ置換したスタイル（design-A-ver5.md参照）。
+   意匠の核: 縦のグラデーションバー＝「姿勢の軸」モチーフ。
+   ============================================================ */
+
+.av5-site {
+  --av5-ink: #3b3b3b;
+  --av5-muted: #707070;
+  /* メインカラー: 暖かいピンクベージュ。soft はその明色（バンドの2階調用） */
+  --av5-main: #efdfd5;
+  --av5-main-soft: #f8f0ea;
+  --av5-khaki: #b8b6a9;
+  --av5-line: #dcdad2;
+  --av5-white: #fff;
+  --av5-grad: linear-gradient(225deg, #d9afd9 0%, #97d9e1 100%);
+  --av5-grad-v: linear-gradient(180deg, #d9afd9 0%, #97d9e1 100%);
+  --av5-shadow: 0 10px 30px rgba(59, 59, 59, 0.08);
+  --av5-sans: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --av5-en: "Josefin Sans", "Zen Kaku Gothic New", sans-serif;
+  --av5-container: 1180px;
+  --av5-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --av5-section: clamp(5.5rem, 9vw, 8.5rem);
+  --av5-radius: 16px;
+  --av5-band-radius: clamp(1.5rem, 3vw, 2.25rem);
+  --av5-band-inset: clamp(0.75rem, 2vw, 1.5rem);
+
+  background: var(--av5-white);
+  color: var(--av5-ink);
+  font-family: var(--av5-sans);
+  font-size: 15.5px;
+  line-height: 2;
+  letter-spacing: 0.09em;
+}
+
+.av5-site img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.av5-container {
+  margin-inline: auto;
+  max-width: var(--av5-container);
+  padding-inline: var(--av5-gutter);
+}
+
+.av5-section {
+  padding-block: var(--av5-section);
+}
+
+/* 角丸の浮遊バンド: 斜めカットの代替 */
+.av5-band {
+  margin-inline: var(--av5-band-inset);
+  border-radius: var(--av5-band-radius);
+}
+
+.av5-band--main {
+  background: var(--av5-main);
+}
+
+.av5-band--soft {
+  background: var(--av5-main-soft);
+}
+
+.av5-band + .av5-band {
+  margin-top: var(--av5-band-inset);
+}
+
+.av5-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* margin リセットは base.css の型セレクタに任せる */
+.av5-site h1,
+.av5-site h2,
+.av5-site h3 {
+  font-weight: 500;
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+.av5-site p {
+  text-wrap: pretty;
+}
+
+/* ------------------------------------------------------------
+   Heading（姿勢の軸: 縦グラデーションバー + 罫線）
+   ------------------------------------------------------------ */
+
+.av5-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.av5-heading-main {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.av5-heading-axis {
+  width: 4px;
+  height: 3.4rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--av5-grad-v);
+}
+
+.av5-heading-en {
+  font-family: var(--av5-en);
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.av5-heading-ja {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--av5-muted);
+}
+
+.av5-heading-rule {
+  flex: 1 1 3rem;
+  height: 1px;
+  background: var(--av5-line);
+  margin-left: 1rem;
+  align-self: center;
+}
+
+.av5-heading-aside {
+  font-size: 0.82rem;
+  color: var(--av5-muted);
+  letter-spacing: 0.08em;
+}
+
+.av5-heading--light {
+  color: var(--av5-white);
+}
+
+.av5-heading--light .av5-heading-ja,
+.av5-heading--light .av5-heading-aside {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.av5-section-intro {
+  max-width: 44rem;
+  margin-bottom: clamp(2.25rem, 4vw, 3.25rem);
+}
+
+@media (min-width: 1025px) {
+  .av5-site .av5-section-intro--wide {
+    max-width: none;
+    letter-spacing: 0;
+    white-space: nowrap;
+    text-wrap: nowrap;
+  }
+}
+
+.av5-note {
+  margin-top: clamp(2rem, 3.5vw, 2.75rem);
+  font-size: 0.88rem;
+  color: var(--av5-muted);
+}
+
+.av5-fine-print {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--av5-muted);
+}
+
+.av5-text {
+  margin-top: 1.4rem;
+}
+
+.av5-statement {
+  margin-top: 1rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* ------------------------------------------------------------
+   Reveal
+   ------------------------------------------------------------ */
+
+.av5-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+
+.av5-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av5-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   Actions（ピル型）
+   ------------------------------------------------------------ */
+
+.av5-action-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.av5-booking {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 58px;
+  padding: 0.9rem 2.4rem;
+  background: var(--av5-grad);
+  color: var(--av5-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 999px;
+  box-shadow: var(--av5-shadow);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.av5-booking:hover {
+  filter: brightness(1.06) saturate(1.1);
+}
+
+.av5-booking:active {
+  transform: translateY(1px);
+}
+
+.av5-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0.7rem 2rem;
+  background: var(--av5-white);
+  color: var(--av5-ink);
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--av5-ink);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  align-self: flex-start;
+}
+
+.av5-line:hover {
+  background: var(--av5-ink);
+  color: var(--av5-white);
+}
+
+.av5-booking.is-disabled,
+.av5-line.is-disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.av5-action-support {
+  font-size: 0.8rem;
+  color: var(--av5-muted);
+  letter-spacing: 0.05em;
+}
+
+.av5-section-action {
+  margin-top: clamp(2.75rem, 5vw, 4rem);
+  align-items: center;
+  text-align: center;
+}
+
+.av5-section-action .av5-line {
+  align-self: center;
+}
+
+.av5-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 48px;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--av5-line);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.av5-text-link:hover {
+  color: var(--av5-muted);
+  border-color: var(--av5-muted);
+}
+
+/* ------------------------------------------------------------
+   Card
+   ------------------------------------------------------------ */
+
+.av5-card {
+  background: var(--av5-white);
+  border-radius: var(--av5-radius);
+  box-shadow: var(--av5-shadow);
+  padding: 1.9rem 1.9rem 1.75rem;
+}
+
+.av5-card h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.av5-card-number {
+  display: block;
+  font-family: var(--av5-en);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.7rem;
+  background: var(--av5-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ------------------------------------------------------------
+   Header
+   ------------------------------------------------------------ */
+
+.av5-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1px 0 rgba(59, 59, 59, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.av5-header.is-scrolled {
+  box-shadow: 0 4px 20px rgba(59, 59, 59, 0.08);
+}
+
+.av5-header-inner {
+  margin-inline: auto;
+  max-width: 1320px;
+  padding: 0.8rem var(--av5-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.av5-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.av5-brand strong {
+  font-family: var(--av5-en);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.av5-brand span {
+  font-size: 0.56rem;
+  letter-spacing: 0.32em;
+  color: var(--av5-muted);
+}
+
+.av5-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.1rem, 2.2vw, 2.1rem);
+}
+
+.av5-nav > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.av5-nav > a:hover {
+  border-image: var(--av5-grad) 1;
+  border-bottom: 2px solid;
+}
+
+.av5-nav-en {
+  font-family: var(--av5-en);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.av5-nav-ja {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--av5-muted);
+}
+
+.av5-menu-button {
+  display: none;
+  border: 0;
+  background: none;
+  padding: 0.6rem;
+  cursor: pointer;
+  color: var(--av5-ink);
+}
+
+/* ------------------------------------------------------------
+   Hero（インセット角丸フォト + 白チップ）
+   ------------------------------------------------------------ */
+
+.av5-hero {
+  padding: calc(76px + var(--av5-band-inset)) var(--av5-band-inset) 0;
+}
+
+.av5-hero-frame {
+  position: relative;
+  min-height: 82vh;
+  min-height: 82dvh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: var(--av5-band-radius);
+}
+
+.av5-hero-images {
+  position: absolute;
+  inset: 0;
+}
+
+/* .av5-site img の height: auto に勝つため詳細度を上げる */
+.av5-site .av5-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  will-change: opacity;
+}
+
+.av5-site .av5-hero-bg.is-active {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av5-site .av5-hero-bg {
+    transition: none;
+  }
+}
+
+.av5-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(35, 38, 36, 0.7) 0%, rgba(35, 38, 36, 0.26) 45%, rgba(35, 38, 36, 0.1) 100%);
+}
+
+.av5-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--av5-container);
+  margin-inline: auto;
+  padding: 0 var(--av5-gutter) clamp(3.5rem, 8vh, 5.5rem);
+  color: var(--av5-white);
+}
+
+.av5-hero-kicker {
+  font-family: var(--av5-en);
+  font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.av5-hero h1 {
+  font-size: clamp(2.6rem, 5.4vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-shadow: 0 2px 24px rgba(35, 38, 36, 0.4);
+}
+
+.av5-hero-formula {
+  margin-top: 1.6rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.av5-hero-description {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.av5-hero-actions {
+  margin-top: 2.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.av5-hero-actions .av5-action-support {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.av5-hero-actions .av5-line {
+  background: transparent;
+  color: var(--av5-white);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.av5-hero-actions .av5-line:hover {
+  background: var(--av5-white);
+  color: var(--av5-ink);
+}
+
+/* 店舗ファクトの白チップ: ヒーロー下辺に重ねる */
+.av5-hero-chips {
+  list-style: none;
+  position: relative;
+  z-index: 2;
+  margin: -1.6rem auto 0;
+  padding: 0 var(--av5-gutter);
+  max-width: var(--av5-container);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.av5-hero-chips li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.2rem;
+  padding: 0.4rem 1.5rem;
+  background: var(--av5-white);
+  border-radius: 999px;
+  box-shadow: var(--av5-shadow);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 861px) {
+  .av5-hero-content {
+    padding-bottom: clamp(6.5rem, 14vh, 8rem);
+  }
+
+  .av5-hero-chips {
+    margin-top: -4.7rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   Problem
+   ------------------------------------------------------------ */
+
+.av5-problem {
+  margin-top: calc(var(--av5-band-inset) + 1.5rem);
+}
+
+.av5-problem-statement {
+  max-width: 44rem;
+}
+
+.av5-problem-statement h2 {
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.av5-problem-statement p {
+  margin-top: 1.4rem;
+  color: var(--av5-muted);
+}
+
+.av5-problem-grid {
+  list-style: none;
+  margin: clamp(2.5rem, 4.5vw, 3.5rem) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.av5-problem-grid p {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------
+   Concept（グラデーションのオフセットブロック）
+   ------------------------------------------------------------ */
+
+.av5-concept-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: center;
+}
+
+.av5-offset-photo {
+  position: relative;
+  isolation: isolate;
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+.av5-offset-photo::after {
+  content: "";
+  position: absolute;
+  inset: 1.5rem -1.5rem -1.5rem 1.5rem;
+  background: var(--av5-grad);
+  opacity: 0.35;
+  z-index: -1;
+  border-radius: var(--av5-radius);
+}
+
+.av5-offset-photo img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--av5-radius);
+}
+
+/* ------------------------------------------------------------
+   Method
+   ------------------------------------------------------------ */
+
+.av5-method-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.2vw, 1.9rem);
+}
+
+.av5-method-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.av5-method-number {
+  font-family: var(--av5-en);
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  background: var(--av5-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.av5-method-key {
+  margin-top: 0.9rem;
+  font-family: var(--av5-en);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+}
+
+.av5-method-card h3 {
+  margin-top: 0.8rem;
+  font-size: 0.98rem;
+}
+
+.av5-method-body {
+  margin-top: 0.7rem;
+  font-size: 0.86rem;
+  color: var(--av5-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Bodymake（下辺スクリム + 左寄せラベル）
+   ------------------------------------------------------------ */
+
+.av5-goal-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.1rem, 2vw, 1.75rem);
+}
+
+.av5-photo-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--av5-radius);
+}
+
+.av5-photo-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.av5-photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(35, 38, 36, 0.78) 0%, rgba(35, 38, 36, 0.24) 45%, rgba(35, 38, 36, 0) 70%);
+}
+
+.av5-photo-card:hover img {
+  transform: scale(1.03);
+}
+
+.av5-photo-card-label {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 1.4rem 1.5rem;
+  color: var(--av5-white);
+}
+
+.av5-photo-card-label h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.av5-photo-card-label p {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ------------------------------------------------------------
+   Reasons
+   ------------------------------------------------------------ */
+
+.av5-reason-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--av5-line);
+}
+
+.av5-reason-list li {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 18rem) minmax(0, 1fr);
+  gap: 1rem clamp(1.5rem, 3.5vw, 3rem);
+  align-items: baseline;
+  padding: 1.9rem 0.25rem;
+  border-bottom: 1px solid var(--av5-line);
+}
+
+.av5-reason-number {
+  font-family: var(--av5-en);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  background: var(--av5-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.av5-reason-list h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.av5-reason-list p {
+  font-size: 0.9rem;
+  color: var(--av5-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Trainer
+   ------------------------------------------------------------ */
+
+.av5-trainer-card {
+  background: var(--av5-white);
+  border-radius: var(--av5-radius);
+  box-shadow: var(--av5-shadow);
+  padding: clamp(1.75rem, 3.5vw, 3.25rem);
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.av5-trainer-photo {
+  margin: 0;
+}
+
+.av5-trainer-photo img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--av5-radius);
+}
+
+.av5-trainer-message {
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.av5-trainer-name {
+  margin-top: 1.25rem;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.av5-profile-label {
+  margin-top: 1.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--av5-line);
+  font-family: var(--av5-en);
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
+  color: var(--av5-muted);
+}
+
+.av5-trainer-bio {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.av5-trainer-bio p {
+  font-size: 0.93rem;
+  letter-spacing: 0.06em;
+}
+
+.av5-trainer-facts {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--av5-muted);
+  letter-spacing: 0.05em;
+}
+
+.av5-trainer-facts li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.av5-trainer-facts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--av5-grad);
+  opacity: 0.7;
+}
+
+.av5-trainer-body .av5-action-wrap {
+  margin-top: 2rem;
+}
+
+/* ------------------------------------------------------------
+   Program
+   ------------------------------------------------------------ */
+
+.av5-program-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.av5-program-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.av5-program-card.is-main::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 4px;
+  background: var(--av5-grad);
+}
+
+.av5-program-duration {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.av5-program-duration strong {
+  font-family: var(--av5-en);
+  font-size: clamp(2.4rem, 3.6vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.av5-program-duration span {
+  font-family: var(--av5-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--av5-muted);
+}
+
+.av5-program-card h3 {
+  margin-top: 1rem;
+}
+
+.av5-program-body {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--av5-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Price（ダークヘッダーの表）
+   ------------------------------------------------------------ */
+
+.av5-price-table-wrap {
+  overflow-x: auto;
+}
+
+.av5-price-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: var(--av5-white);
+  box-shadow: var(--av5-shadow);
+  border-radius: var(--av5-radius);
+  overflow: hidden;
+}
+
+.av5-price-table thead th {
+  background: var(--av5-ink);
+  color: var(--av5-white);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 1rem 1.4rem;
+}
+
+.av5-price-table tbody th,
+.av5-price-table tbody td {
+  padding: 1.1rem 1.4rem;
+  border-top: 1px solid var(--av5-line);
+  font-weight: 400;
+  font-size: 0.95rem;
+  vertical-align: baseline;
+}
+
+.av5-price-table tbody th {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.av5-price-table thead th:nth-child(2),
+.av5-price-table tbody td:nth-child(2) {
+  width: 16%;
+}
+
+.av5-price-table thead th:last-child,
+.av5-price-table td:last-child {
+  text-align: right;
+  width: 24%;
+}
+
+.av5-price-value {
+  font-family: var(--av5-en);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+}
+
+.av5-price-notes {
+  margin-top: clamp(2rem, 3.5vw, 2.75rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.av5-price-note h3 {
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--av5-line);
+}
+
+.av5-price-note p {
+  margin-top: 0.9rem;
+  font-size: 0.86rem;
+  color: var(--av5-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Experience
+   ------------------------------------------------------------ */
+
+.av5-experience-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: start;
+}
+
+.av5-no-pressure {
+  margin: 0 0 2rem;
+  padding: 1.3rem 1.5rem;
+  background: var(--av5-main);
+  border-radius: var(--av5-radius);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.av5-experience-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.av5-experience-steps li {
+  position: relative;
+  display: flex;
+  gap: 1.6rem;
+  padding: 0 0 2.25rem;
+}
+
+/* 姿勢の軸モチーフをステップの縦ラインにも展開 */
+.av5-experience-steps li::before {
+  content: "";
+  position: absolute;
+  left: 1.05rem;
+  top: 2.4rem;
+  bottom: 0.3rem;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--av5-grad-v);
+  opacity: 0.55;
+}
+
+.av5-experience-steps li:last-child {
+  padding-bottom: 0;
+}
+
+.av5-experience-steps li:last-child::before {
+  display: none;
+}
+
+.av5-step-number {
+  flex-shrink: 0;
+  width: 2.1rem;
+  font-family: var(--av5-en);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 2;
+  background: var(--av5-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.av5-experience-steps h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.av5-experience-steps p {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--av5-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Studio
+   ------------------------------------------------------------ */
+
+.av5-studio-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.av5-studio-main {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.av5-studio-main img {
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border-radius: var(--av5-radius);
+}
+
+.av5-studio-main figcaption {
+  padding-top: 0.8rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--av5-muted);
+}
+
+.av5-studio-sub {
+  margin: 0;
+}
+
+.av5-studio-sub img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--av5-radius);
+}
+
+.av5-studio-amenities {
+  margin: clamp(2rem, 3.5vw, 2.75rem) 0 0;
+  border-top: 1px solid var(--av5-line);
+  max-width: 44rem;
+}
+
+.av5-studio-amenities > div {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--av5-line);
+  font-size: 0.88rem;
+}
+
+.av5-studio-amenities dt {
+  color: var(--av5-muted);
+}
+
+.av5-studio-amenities dd {
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   FAQ
+   ------------------------------------------------------------ */
+
+.av5-faq-list {
+  max-width: 52rem;
+  border-top: 1px solid var(--av5-line);
+}
+
+.av5-faq-item {
+  border-bottom: 1px solid var(--av5-line);
+}
+
+.av5-faq-item summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.4rem 0.25rem;
+  min-height: 48px;
+  cursor: pointer;
+  font-size: 0.98rem;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.av5-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.av5-faq-item summary:hover {
+  color: var(--av5-muted);
+}
+
+.av5-faq-plus,
+.av5-faq-minus {
+  flex-shrink: 0;
+  color: var(--av5-khaki);
+}
+
+.av5-faq-minus {
+  display: none;
+}
+
+.av5-faq-item[open] .av5-faq-plus {
+  display: none;
+}
+
+.av5-faq-item[open] .av5-faq-minus {
+  display: block;
+}
+
+.av5-faq-answer {
+  padding: 0 2.75rem 1.6rem 0.25rem;
+  font-size: 0.9rem;
+  color: var(--av5-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Access
+   ------------------------------------------------------------ */
+
+.av5-access {
+  background: var(--av5-main);
+  margin-inline: var(--av5-band-inset);
+  border-radius: var(--av5-band-radius);
+}
+
+.av5-access-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 4.5vw, 4rem);
+  align-items: start;
+}
+
+.av5-access-map {
+  overflow: hidden;
+  border-radius: var(--av5-radius);
+  box-shadow: var(--av5-shadow);
+}
+
+.av5-access-map iframe {
+  display: block;
+  width: 100%;
+  height: 400px;
+  border: 0;
+}
+
+.av5-access-info h3 {
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.av5-access-info dl {
+  margin: 1.5rem 0 0;
+  border-top: 1px solid var(--av5-line);
+}
+
+.av5-access-info dl > div {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--av5-line);
+  font-size: 0.88rem;
+}
+
+.av5-access-info dt {
+  color: var(--av5-muted);
+}
+
+.av5-access-info dd {
+  margin: 0;
+}
+
+.av5-access-info address {
+  font-style: normal;
+}
+
+.av5-access-info .av5-text-link {
+  margin-top: 1.4rem;
+}
+
+.av5-access-summary {
+  margin-top: clamp(2.5rem, 5vw, 3.75rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--av5-line);
+  font-size: 0.88rem;
+  color: var(--av5-muted);
+  max-width: 46rem;
+  letter-spacing: 0.05em;
+}
+
+/* ------------------------------------------------------------
+   Final CTA（写真背景 + スクリム）
+   ------------------------------------------------------------ */
+
+.av5-final {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--av5-white);
+  padding-block: clamp(5.5rem, 10vw, 9rem);
+  margin-top: var(--av5-section);
+}
+
+/* .av5-site img の height: auto に勝つため詳細度を上げる */
+.av5-site .av5-final-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.av5-final-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(35, 38, 36, 0.68) 0%, rgba(35, 38, 36, 0.46) 100%);
+}
+
+.av5-final-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.av5-final-en {
+  font-family: var(--av5-en);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1.5rem;
+}
+
+.av5-final h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 20px rgba(35, 38, 36, 0.35);
+}
+
+.av5-final-lead {
+  margin-top: 1.4rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.06em;
+}
+
+.av5-final-booking {
+  margin-top: 2.5rem;
+  align-items: center;
+}
+
+.av5-final .av5-booking {
+  color: #30343b;
+  letter-spacing: 0.07em;
+}
+
+.av5-final .av5-booking.is-disabled {
+  opacity: 1;
+}
+
+.av5-final .av5-booking,
+.av5-final .av5-line {
+  transition: background-color 0.25s ease, color 0.25s ease, filter 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.av5-final .av5-booking svg,
+.av5-final .av5-line svg {
+  transition: transform 0.25s ease;
+}
+
+.av5-final .av5-action-support {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.av5-final .av5-line {
+  margin-top: 1.25rem;
+  background: transparent;
+  color: var(--av5-white);
+  border-color: rgba(255, 255, 255, 0.85);
+  align-self: center;
+}
+
+.av5-final .av5-line:hover {
+  background: var(--av5-white);
+  color: var(--av5-ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .av5-final .av5-booking:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 16px 32px rgba(151, 217, 225, 0.28);
+  }
+
+  .av5-final .av5-line:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  }
+
+  .av5-final .av5-booking:hover svg,
+  .av5-final .av5-line:hover svg {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av5-final .av5-booking,
+  .av5-final .av5-line,
+  .av5-final .av5-booking svg,
+  .av5-final .av5-line svg {
+    transition: none;
+  }
+
+  .av5-final .av5-booking:hover,
+  .av5-final .av5-line:hover,
+  .av5-final .av5-booking:hover svg,
+  .av5-final .av5-line:hover svg {
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   Footer（ダーク + グラデーションヘアライン）
+   ------------------------------------------------------------ */
+
+.av5-footer {
+  background: var(--av5-ink);
+  color: var(--av5-white);
+  padding-block: 2.75rem;
+  border-top: 3px solid transparent;
+}
+
+.av5-footer-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.av5-footer-top {
+  font-family: var(--av5-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  padding-left: 1.1rem;
+  border-left: 2px solid transparent;
+  border-image: var(--av5-grad-v) 1;
+  transition: opacity 0.2s ease;
+}
+
+.av5-footer-top:hover {
+  opacity: 0.7;
+}
+
+.av5-footer-brand {
+  font-family: var(--av5-en);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.av5-footer-note p {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.av5-footer-note address {
+  margin-top: 0.3rem;
+  font-style: normal;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.av5-footer-nav {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  font-family: var(--av5-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+}
+
+.av5-footer-nav a {
+  transition: opacity 0.2s ease;
+}
+
+.av5-footer-nav a:hover {
+  opacity: 0.7;
+}
+
+.av5-footer-nav span {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ------------------------------------------------------------
+   Floating / Mobile bar
+   ------------------------------------------------------------ */
+
+.av5-floating {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 30;
+  transform: translateY(-50%);
+}
+
+.av5-floating a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 208px;
+  padding: 1.25rem 0.9rem;
+  background: var(--av5-grad);
+  color: var(--av5-white);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-right: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 999px 0 0 999px;
+  box-shadow: -12px 14px 36px rgba(59, 59, 59, 0.3);
+  transform-origin: right center;
+  transition:
+    filter 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.25s ease,
+    padding-left 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.av5-floating-label {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  transition: letter-spacing 0.25s ease;
+}
+
+.av5-floating a:hover {
+  filter: brightness(1.08) saturate(1.12);
+  padding-left: 1.35rem;
+  transform: scale(1.035);
+  box-shadow: -18px 18px 44px rgba(59, 59, 59, 0.36);
+}
+
+.av5-floating a:hover .av5-floating-label {
+  letter-spacing: 0.23em;
+}
+
+.av5-floating a:focus-visible {
+  outline: 3px solid var(--av5-white);
+  outline-offset: -6px;
+}
+
+.av5-floating a[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av5-floating a,
+  .av5-floating-label {
+    transition: none;
+  }
+
+  .av5-floating a:hover {
+    padding-left: 0.9rem;
+    transform: none;
+  }
+}
+
+.av5-mobile-bar {
+  display: none;
+}
+
+.av5-back-to-top {
+  position: fixed;
+  right: clamp(1rem, 2vw, 1.75rem);
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 29;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  color: var(--av5-ink);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(59, 59, 59, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 10px 28px rgba(59, 59, 59, 0.18);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease,
+    background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.av5-back-to-top span {
+  font-family: var(--av5-en);
+  font-size: 0.62rem;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  transform: translateX(0.06em);
+}
+
+.av5-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+}
+
+.av5-back-to-top:hover {
+  color: var(--av5-white);
+  background: var(--av5-ink);
+  box-shadow: 0 14px 32px rgba(59, 59, 59, 0.26);
+  transform: translateY(-4px);
+}
+
+.av5-back-to-top:focus-visible {
+  outline: 3px solid #9fd7e3;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .av5-back-to-top {
+    transition: none;
+  }
+
+  .av5-back-to-top:hover {
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   Tablet
+   ------------------------------------------------------------ */
+
+@media (max-width: 1024px) {
+  .av5-method-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .av5-goal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .av5-reason-list li {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+  }
+
+  .av5-reason-list p {
+    grid-column: 2;
+  }
+}
+
+/* ------------------------------------------------------------
+   Mobile
+   ------------------------------------------------------------ */
+
+@media (max-width: 860px) {
+  .av5-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.4rem;
+    padding: 6rem var(--av5-gutter) 3rem;
+    background: var(--av5-white);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .av5-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .av5-nav > a {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.9rem;
+  }
+
+  .av5-nav-en {
+    font-size: 1.15rem;
+  }
+
+  .av5-menu-button {
+    display: inline-flex;
+    position: relative;
+    z-index: 50;
+  }
+
+  .av5-hero-frame {
+    min-height: 84dvh;
+  }
+
+  .av5-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .av5-hero-actions .av5-action-wrap,
+  .av5-hero-actions .av5-booking,
+  .av5-hero-actions .av5-line {
+    width: 100%;
+  }
+
+  .av5-hero-chips {
+    gap: 0.6rem;
+  }
+
+  .av5-hero-chips li {
+    min-height: 2.9rem;
+    padding: 0.35rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  .av5-problem-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av5-concept-grid,
+  .av5-experience-grid,
+  .av5-access-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av5-offset-photo {
+    max-width: 30rem;
+  }
+
+  .av5-method-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av5-goal-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 26rem;
+  }
+
+  .av5-reason-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+    padding: 1.6rem 0;
+  }
+
+  .av5-reason-list p {
+    grid-column: 1;
+  }
+
+  .av5-trainer-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av5-trainer-photo {
+    max-width: 26rem;
+  }
+
+  .av5-program-grid,
+  .av5-price-notes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av5-studio-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av5-studio-main img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .av5-access-map iframe {
+    height: 320px;
+  }
+
+  .av5-experience-copy .av5-action-wrap,
+  .av5-experience-copy .av5-booking {
+    width: 100%;
+  }
+
+  /* README要件: 料金テーブルはモバイルで縦レイアウト */
+  .av5-price-table thead {
+    display: none;
+  }
+
+  .av5-price-table,
+  .av5-price-table tbody,
+  .av5-price-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .av5-price-table tr {
+    padding: 1.3rem 1.4rem;
+    border-top: 3px solid var(--av5-main);
+  }
+
+  .av5-price-table tr:first-child {
+    border-top: 0;
+  }
+
+  .av5-price-table tbody th,
+  .av5-price-table tbody td,
+  .av5-price-table tbody td:nth-child(2),
+  .av5-price-table tbody td:last-child {
+    padding: 0;
+    border: 0;
+    width: auto;
+    text-align: left;
+  }
+
+  .av5-price-table tbody th {
+    display: block;
+  }
+
+  .av5-price-table tbody td,
+  .av5-price-table tbody td:nth-child(2),
+  .av5-price-table tbody td:last-child {
+    display: inline-block;
+    margin-top: 0.45rem;
+  }
+
+  .av5-price-table tbody td:nth-child(2)::after {
+    content: "／";
+    margin-inline: 0.55rem;
+    color: var(--av5-line);
+  }
+
+  .av5-final-booking,
+  .av5-final .av5-booking {
+    width: 100%;
+    max-width: 26rem;
+  }
+
+  .av5-footer-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .av5-floating {
+    display: none;
+  }
+
+  .av5-mobile-bar {
+    display: block;
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 30;
+    padding: 0.7rem var(--av5-gutter) calc(0.7rem + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--av5-line);
+  }
+
+  .av5-back-to-top {
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    width: 50px;
+    height: 50px;
+  }
+
+  .av5-has-bar .av5-back-to-top {
+    bottom: calc(5.75rem + env(safe-area-inset-bottom));
+  }
+
+  .av5-mobile-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    background: var(--av5-grad);
+    color: var(--av5-white);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 999px;
+  }
+
+  .av5-has-bar main {
+    padding-bottom: 5.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .av5-site {
+    font-size: 15px;
+    letter-spacing: 0.06em;
+  }
+
+  .av5-hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .av5-final h2 br {
+    display: none;
+  }
+
+  .av5-booking {
+    gap: 0.5rem;
+    padding-inline: 1.1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+
+  .av5-heading-en {
+    font-size: 1.7rem;
+  }
+
+  .av5-heading-axis {
+    height: 2.8rem;
+  }
+
+  .av5-heading-rule {
+    display: none;
+  }
+}
