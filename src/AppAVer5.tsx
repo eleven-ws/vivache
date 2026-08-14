@@ -390,13 +390,16 @@ function ConceptSection() {
         <div className="av5-concept-copy">
           <Heading en="CONCEPT" ja="コンセプト" />
           <h2 id="av5-concept-title" className="av5-statement">
-            整えてから、鍛える。
+            美しさは、姿勢から。
           </h2>
           <p className="av5-text">
-            最初に確認するのは、今の姿勢と動きの癖です。目指す姿を言葉にしてから、必要な順番を決める。鍛えるのは、そのあとで十分です。
+            どれだけ鍛えても、身体の土台である姿勢が崩れたままでは、本当の美しさには近づけません。VIVACHEは、骨盤や肩甲骨から丁寧に整え、一人ひとりの「なりたい姿」から身体づくりを考えます。
           </p>
           <p className="av5-text">
-            VIVACHEという名前には「いきいきと、前向きに。」という意味を込めました。身体が変わると、自分を見る目が変わる。その入り口が姿勢だと考えています。
+            ただ痩せるだけでも、ただ鍛えるだけでもない。目指すのは、理想の先にある、あなたらしい「きれい」。身体が変わり、自信が生まれることで、毎日が少しずつ前向きになります。
+          </p>
+          <p className="av5-text">
+            VIVACHEという名前には「いきいきと、前向きに。」という想いを込めています。身体を整え、心まで前向きになれる場所を、私たちはつくります。
           </p>
         </div>
         <figure className="av5-offset-photo av5-reveal">
@@ -450,7 +453,7 @@ function BodymakeSection() {
       <div className="av5-container">
         <Heading en="BODYMAKE" ja="目指す身体" />
         <p className="av5-section-intro av5-section-intro--wide" id="av5-bodymake-heading">
-          目指す「きれい」は、人によって違う。気になる部位だけを追い込むより、全身のつながりを見た方が、立ち姿は自然に変わります。
+          目指す身体は、千差万別。気になる部位を変えていくために、全身のバランスからつながりを作って整えます。
         </p>
         <ol className="av5-goal-grid">
           {BODY_GOALS.map((goal, index) => (

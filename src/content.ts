@@ -16,7 +16,7 @@ export const PROBLEMS = [
 
 export const METHODS = [
   {
-    key: "SEE",
+    key: "DISCOVER",
     title: "今の身体を知る",
     body: "姿勢・身体のライン・動きを丁寧に確認します。",
   },
@@ -31,17 +31,17 @@ export const METHODS = [
     body: "ストレッチなどを取り入れ、動きやすい状態へ整えます。",
   },
   {
-    key: "TRAIN",
+    key: "MAKE",
     title: "必要な筋肉を鍛える",
     body: "理想の身体から逆算し、必要な筋肉へ丁寧にアプローチします。",
   },
 ] as const;
 
 export const BODY_GOALS = [
-  { number: "01", title: "立ち姿", body: "日常のふとした瞬間も、凛とした印象へ。" },
-  { number: "02", title: "ウエスト", body: "姿勢と身体の使い方から、すっきりしたラインへ。" },
-  { number: "03", title: "ヒップ", body: "全身のバランスを見ながら、美しい後ろ姿へ。" },
-  { number: "04", title: "これから", body: "年齢を重ねても、自信を持てる身体を目指して。" },
+  { number: "01", title: "立ち姿", body: "肩甲骨と骨盤を整え、真のきれいへ。" },
+  { number: "02", title: "ウエスト", body: "左右のくびれを整え、綺麗に服を着こなす。" },
+  { number: "03", title: "ヒップ", body: "同性からも憧れられるメリハリのある身体に。" },
+  { number: "04", title: "これから", body: "いつまでも自信を持てるスタイルを維持する。" },
 ] as const;
 
 export const REASONS = [
