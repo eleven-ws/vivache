@@ -19,6 +19,8 @@ import movementImage from "../image/movement-session.jpg";
 import postureConsultationImage from "../image/posture-consultation.jpg";
 import studioImage from "../image/private-studio.webp";
 import trainerImage from "../image/trainer-portrait.webp";
+import logotypeImage from "../image/vivache-logotype.png";
+import logotypeLightImage from "../image/vivache-logotype-light.png";
 import {
   BODY_GOALS,
   EXPERIENCE_STEPS,
@@ -265,8 +267,7 @@ function Header() {
     <header className={`av5-header${isScrolled ? " is-scrolled" : ""}`}>
       <div className="av5-header-inner">
         <a className="av5-brand" href="#top" aria-label="VIVACHE トップへ">
-          <strong>VIVACHE</strong>
-          <span>PERSONAL STUDIO</span>
+          <img src={logotypeImage} alt="VIVACHE PERSONAL GYM" width={1034} height={217} />
         </a>
         <nav
           id="av5-navigation"
@@ -842,7 +843,15 @@ function Footer() {
           TOP
         </a>
         <div className="av5-footer-note">
-          <p className="av5-footer-brand">VIVACHE</p>
+          <p className="av5-footer-brand">
+            <img
+              src={logotypeLightImage}
+              alt="VIVACHE PERSONAL GYM"
+              width={1034}
+              height={217}
+              loading="lazy"
+            />
+          </p>
           <p>姿勢改善 × ボディメイク。北新地・梅田の完全個室パーソナルジム。</p>
           <address>{SITE_CONFIG.ADDRESS}</address>
         </div>

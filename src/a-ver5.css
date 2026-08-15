@@ -378,21 +378,14 @@
 
 .av5-brand {
   display: flex;
-  flex-direction: column;
-  line-height: 1.25;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.av5-brand strong {
-  font-family: var(--av5-en);
-  font-size: 1.45rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-}
-
-.av5-brand span {
-  font-size: 0.56rem;
-  letter-spacing: 0.32em;
-  color: var(--av5-muted);
+.av5-brand img {
+  display: block;
+  width: auto;
+  height: clamp(1.7rem, 3.4vw, 2.2rem);
 }
 
 .av5-nav {
@@ -1487,11 +1480,11 @@
   opacity: 0.7;
 }
 
-.av5-footer-brand {
-  font-family: var(--av5-en);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+.av5-footer-brand img {
+  display: block;
+  width: auto;
+  height: 2.1rem;
+  margin-bottom: 0.55rem;
 }
 
 .av5-footer-note p {
