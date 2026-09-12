@@ -13,12 +13,16 @@ import {
   useEffect,
   useState,
 } from "react";
-import conditioningImage from "../image/conditioning-session.webp";
-import heroImage from "../image/hero-session.webp";
-import movementImage from "../image/movement-session.jpg";
-import postureConsultationImage from "../image/posture-consultation.jpg";
-import studioImage from "../image/private-studio.webp";
-import trainerImage from "../image/trainer-portrait.webp";
+import bodyHipImage from "../image/body-hip.webp";
+import bodyPostureImage from "../image/body-posture.webp";
+import bodyWaistImage from "../image/body-waist.webp";
+import conceptPostureImage from "../image/concept-posture-check.webp";
+import finalConsultationImage from "../image/final-consultation.webp";
+import heroMobilityImage from "../image/hero-mobility-session.webp";
+import heroReformerImage from "../image/hero-reformer-session.webp";
+import heroStudioImage from "../image/hero-studio.webp";
+import studioRackImage from "../image/studio-rack.webp";
+import trainerKodaiImage from "../image/trainer-kodai-tasaka.webp";
 import logotypeImage from "../image/vivache-logotype.png";
 import logotypeLightImage from "../image/vivache-logotype-light.png";
 import {
@@ -48,16 +52,16 @@ const NAV_JA: Record<string, string> = {
 };
 
 const GOAL_IMAGES = [
-  postureConsultationImage,
-  conditioningImage,
-  movementImage,
-  heroImage,
+  bodyPostureImage,
+  bodyWaistImage,
+  bodyHipImage,
+  heroMobilityImage,
 ] as const;
 
 const HERO_IMAGES = [
-  { src: studioImage, width: 1536, height: 1024 },
-  { src: heroImage, width: 1672, height: 941 },
-  { src: conditioningImage, width: 1448, height: 1086 },
+  { src: heroStudioImage, width: 1200, height: 800 },
+  { src: heroMobilityImage, width: 1147, height: 800 },
+  { src: heroReformerImage, width: 1200, height: 800 },
 ] as const;
 
 const PRICE_NOTES = [
@@ -405,10 +409,10 @@ function ConceptSection() {
         </div>
         <figure className="av5-offset-photo av5-reveal">
           <img
-            src={postureConsultationImage}
-            alt="鏡の前で姿勢を確認する女性とトレーナー"
-            width={1200}
-            height={1500}
+            src={conceptPostureImage}
+            alt="鏡を見ながら姿勢を確認する女性とトレーナー"
+            width={533}
+            height={800}
             loading="lazy"
             decoding="async"
           />
@@ -462,7 +466,7 @@ function BodymakeSection() {
               <img
                 src={GOAL_IMAGES[index]}
                 alt=""
-                width={800}
+                width={1200}
                 height={800}
                 loading="lazy"
                 decoding="async"
@@ -507,10 +511,10 @@ function TrainerSection() {
         <div className="av5-trainer-card av5-reveal">
           <figure className="av5-trainer-photo">
             <img
-              src={trainerImage}
+              src={trainerKodaiImage}
               alt="VIVACHEの担当パーソナルトレーナー 田坂 昂大"
-              width={1024}
-              height={1536}
+              width={533}
+              height={800}
               loading="lazy"
               decoding="async"
             />
@@ -672,10 +676,10 @@ function StudioSection() {
         <div className="av5-studio-gallery">
           <figure className="av5-studio-main av5-reveal">
             <img
-              src={studioImage}
-              alt="大阪の街を望む、梅田14階の完全個室トレーニングスタジオ"
-              width={1536}
-              height={1024}
+              src={studioRackImage}
+              alt="パワーラックを備えたVIVACHEの完全個室スタジオ"
+              width={1200}
+              height={800}
               loading="lazy"
               decoding="async"
             />
@@ -683,20 +687,20 @@ function StudioSection() {
           </figure>
           <figure className="av5-studio-sub av5-reveal">
             <img
-              src={movementImage}
-              alt="窓際で身体の動きを確認する女性とトレーナー"
-              width={1400}
-              height={933}
+              src={heroStudioImage}
+              alt="マシンピラティスとトレーニング設備を備えたスタジオ"
+              width={1200}
+              height={800}
               loading="lazy"
               decoding="async"
             />
           </figure>
           <figure className="av5-studio-sub av5-reveal">
             <img
-              src={conditioningImage}
-              alt="マットの上で姿勢を整える女性とトレーナー"
-              width={1448}
-              height={1086}
+              src={heroReformerImage}
+              alt="マシンピラティスで動きを確認する女性とトレーナー"
+              width={1200}
+              height={800}
               loading="lazy"
               decoding="async"
             />
@@ -803,10 +807,10 @@ function FinalCtaSection() {
     <section className="av5-final" aria-labelledby="av5-final-title">
       <img
         className="av5-final-bg"
-        src={heroImage}
+        src={finalConsultationImage}
         alt=""
-        width={1672}
-        height={941}
+        width={1200}
+        height={800}
         loading="lazy"
         decoding="async"
       />
