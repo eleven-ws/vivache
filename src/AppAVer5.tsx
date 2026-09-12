@@ -870,19 +870,47 @@ function Footer() {
 }
 
 function MobileBookingBar() {
-  if (!isHotPepperReady) return null;
-
   return (
-    <div className="av5-mobile-bar" aria-label="予約導線">
+    <nav className="av5-mobile-bar" aria-label="予約・相談">
       <a
-        href={SITE_CONFIG.HOTPEPPER_URL}
-        target="_blank"
-        rel="noreferrer"
-        onClick={() => trackEvent("hotpepper_click_floating")}
+        className={`av5-mobile-cta av5-mobile-cta--booking${isHotPepperReady ? "" : " is-disabled"}`}
+        href={isHotPepperReady ? SITE_CONFIG.HOTPEPPER_URL : undefined}
+        target={isHotPepperReady ? "_blank" : undefined}
+        rel={isHotPepperReady ? "noreferrer" : undefined}
+        aria-disabled={!isHotPepperReady || undefined}
+        aria-label="ホットペッパーで初回体験を予約する"
+        title={isHotPepperReady ? undefined : "予約ページのURLを設定後に利用できます"}
+        onClick={(clickEvent) => {
+          if (!isHotPepperReady) {
+            clickEvent.preventDefault();
+            return;
+          }
+          trackEvent("hotpepper_click_floating");
+        }}
       >
-        ホットペッパーで初回体験を予約
+        <span className="av5-mobile-cta-channel">HOT PEPPER</span>
+        <span>初回体験を予約</span>
       </a>
-    </div>
+      <a
+        className={`av5-mobile-cta av5-mobile-cta--line${isLineReady ? "" : " is-disabled"}`}
+        href={isLineReady ? SITE_CONFIG.LINE_URL : undefined}
+        target={isLineReady ? "_blank" : undefined}
+        rel={isLineReady ? "noreferrer" : undefined}
+        aria-disabled={!isLineReady || undefined}
+        aria-label="LINEで相談する"
+        title={isLineReady ? undefined : "LINE公式アカウントのURLを設定後に利用できます"}
+        onClick={(clickEvent) => {
+          if (!isLineReady) {
+            clickEvent.preventDefault();
+            return;
+          }
+          trackEvent("line_click_floating");
+        }}
+      >
+        <span className="av5-mobile-cta-channel">LINE</span>
+        <span>相談する</span>
+      </a>
+    </nav>
   );
 }
 
@@ -1004,7 +1032,7 @@ export default function AppAVer5() {
   useAVer5Interactions();
 
   return (
-    <div className={`av5-site${isHotPepperReady ? " av5-has-bar" : ""}`}>
+    <div className="av5-site av5-has-bar">
       <SeoStructuredData />
       <a className="skip-link" href="#av5-main">
         本文へ移動

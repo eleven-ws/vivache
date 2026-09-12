@@ -23,6 +23,7 @@ export type TrackingEvent =
   | "hotpepper_click_experience"
   | "hotpepper_click_final"
   | "hotpepper_click_floating"
+  | "line_click_floating"
   | "program_view"
   | "faq_open"
   | "scroll_25"
