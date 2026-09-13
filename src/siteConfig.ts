@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   MAP_URL: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`,
   MAP_EMBED_URL: `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`,
   LOCATION_SHORT: "北新地徒歩5分 / 梅田14階",
-  OPENING_HOURS: "平日 10:00〜22:00",
+  OPENING_HOURS: "平日 11:00〜22:00",
   WEEKEND_HOURS: "土日 不定休",
 } as const;
 
