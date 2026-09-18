@@ -4,6 +4,7 @@ const ADDRESS = "〒530-0047 大阪府大阪市北区西天満４丁目１５−
 export const SITE_CONFIG = {
   LINE_URL: "https://line.me/",
   HOTPEPPER_URL: "",
+  INSTAGRAM_URL: "https://www.instagram.com/vivache1001/",
   ADDRESS,
   MAP_URL: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`,
   MAP_EMBED_URL: `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`,
@@ -24,6 +25,7 @@ export type TrackingEvent =
   | "hotpepper_click_final"
   | "hotpepper_click_floating"
   | "line_click_floating"
+  | "instagram_click_footer"
   | "program_view"
   | "faq_open"
   | "scroll_25"

@@ -2,6 +2,7 @@ import {
   ArrowRight,
   ArrowUp,
   ArrowUpRight,
+  Instagram,
   Menu,
   Minus,
   Plus,
@@ -862,6 +863,17 @@ function Footer() {
         <nav className="av5-footer-nav" aria-label="フッターナビゲーション">
           <a href="#faq">FAQ</a>
           <a href="#access">ACCESS</a>
+          <a
+            className="av5-footer-instagram"
+            href={SITE_CONFIG.INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram公式アカウントを開く"
+            onClick={() => trackEvent("instagram_click_footer")}
+          >
+            <Instagram aria-hidden="true" size={15} strokeWidth={1.8} />
+            <span>Instagram</span>
+          </a>
           <span>© VIVACHE</span>
         </nav>
       </div>
