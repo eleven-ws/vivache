@@ -40,8 +40,7 @@ import {
 import { SITE_CONFIG, trackEvent, type TrackingEvent } from "./siteConfig";
 
 const isHotPepperReady = SITE_CONFIG.HOTPEPPER_URL.trim().length > 0;
-const isLineReady =
-  SITE_CONFIG.LINE_URL.trim().length > 0 && SITE_CONFIG.LINE_URL !== "https://line.me/";
+const isLineReady = SITE_CONFIG.LINE_URL.trim().length > 0;
 
 const NAV_JA: Record<string, string> = {
   CONCEPT: "コンセプト",
