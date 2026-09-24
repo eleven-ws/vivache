@@ -1742,8 +1742,9 @@
     align-items: center;
   }
 
+  /* 下辺に重ねるチップ分の余白を確保し、CTAと重ならないようにする */
   .av5-hero-content {
-    padding-bottom: 0;
+    padding-block: 3rem 5.5rem;
   }
 
   .av5-hero-actions:empty {
@@ -1993,6 +1994,10 @@
     grid-template-columns: repeat(2, minmax(0, 10rem));
     margin-top: -7.5rem;
     padding-inline: 0;
+  }
+
+  .av5-hero-content {
+    padding-bottom: 9rem;
   }
 
   .av5-hero-chips li {

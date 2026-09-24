@@ -3,7 +3,7 @@ const ADDRESS = "〒530-0047 大阪府大阪市北区西天満４丁目１５−
 /** 公開前に確定情報へ差し替える項目を集約しています。 */
 export const SITE_CONFIG = {
   LINE_URL: "https://vivache.eleven-ws.app/auth/line?ref=website",
-  HOTPEPPER_URL: "",
+  HOTPEPPER_URL: "https://beauty.hotpepper.jp/kr/slnH000824854/?vos=cpahpbprosmaf131118005",
   INSTAGRAM_URL: "https://www.instagram.com/vivache1001/",
   ADDRESS,
   MAP_URL: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`,
